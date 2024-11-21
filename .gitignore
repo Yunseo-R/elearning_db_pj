@@ -1,0 +1,11 @@
+# Python 환경 관련 파일 제외
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 가상 환경 폴더 제외
+venv/
+
+# IDE 설정 파일 제외
+.idea/
