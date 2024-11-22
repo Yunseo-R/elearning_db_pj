@@ -7,7 +7,7 @@
 ## 요구사항
 **Python 버전**: 이 스크립트는 Python 3.13 버전을 사용하여 작성되었습니다. 사용하시려면 Python을 설치해주세요.
 - **필요 라이브러리**: mariadb, pandas, openpyxl의 세 가지 라이브러리를 설치해야 합니다.
-- 아래 명령어를 터미널 또는 cmd에 입력하여 라이브러리를 설치해주세요.
+- 아래 명령어를 터미널에 입력하여 라이브러리를 설치해주세요.
   ```bash
   pip install mariadb pandas openpyxl
   ```
