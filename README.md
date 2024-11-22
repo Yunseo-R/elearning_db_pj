@@ -7,16 +7,10 @@
 ## 요구사항
 **Python 버전**: 이 스크립트는 Python 3.13 버전을 사용하여 작성되었습니다. 사용하시려면 Python을 설치해주세요.
 - **필요 라이브러리**: mariadb, pandas, openpyxl의 세 가지 라이브러리를 설치해야 합니다.
-  - 아래 명령어를 터미널 또는 cmd에 입력하여 라이브러리를 설치해주세요.
+- 아래 명령어를 터미널 또는 cmd에 입력하여 라이브러리를 설치해주세요.
   ```bash
   pip install mariadb pandas openpyxl
   ```
-이 스크립트는 Python 3.13 버전을 사용하여 작성되었습니다. 사용하시려면 Python을 설치해주세요. <br>
-이 스크립트를 사용하려면 mariadb, pandas, openpyxl의 세가지 라이브러리를 설치해야 합니다.<br>
-아래의 코드를 터미널 또는 cmd에 입력하여 라이브러리를 설치해주세요. :
-```bash
-pip install mariadb pandas openpyxl
-```
 
 ## 사용법
 1. **환경 설정**: MariaDB 데이터베이스에 접근할 수 있는 설정이 필요합니다.
