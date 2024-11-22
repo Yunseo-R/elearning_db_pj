@@ -29,7 +29,8 @@ pip install mariadb pandas openpyxl
    ```
 
 4. **데이터 삽입 과정**:
-   - 엑셀 파일에서 읽은 데이터는 `extract_year_semester()` 함수에서 연도와 학기를 추출한 후, `insert_data()` 함수를 통해 데이터베이스에 삽입됩니다.
+   - `main()`에서 엑셀 파일에서 데이터를 읽어와 시트이름에서 초/중 여부를 판단해 추출하고, `extract_year_semester()` 함수로 첫번째 셀에서 연도와 학기를 추출하는 등 데이터를 처리합니다.
+   - 엑셀 파일에서 읽고 처리가 끝난 데이터는 `insert_data()` 함수를 통해 데이터베이스에 삽입됩니다.
 
 
 ## 주의사항 
