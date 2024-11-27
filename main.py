@@ -22,7 +22,6 @@ def connect():
     return conn
 
 # 엑셀 시트의 첫번째 셀을 제목으로 간주하고 제목에서 연도와 학기를 추출하는 함수
-# sheet_header: 엑셀 시트의 첫 번째 셀에 포함된 문자열
 def extract_year_semester(sheet_header):
     # 제목에서 연도와 학기 추출을 위한 표현식
     year_match = re.search(r'(\d{4})학년도', sheet_header)
@@ -41,10 +40,6 @@ def extract_year_semester(sheet_header):
     return year, semester
 
 # DB에 데이터를 삽입
-# conn: 마리아DB 연결 객체, data: 엑셀에서 읽어들인 데이터 프레임
-# year: 엑셀 시트 제목에서 추출한 연도, semester: 엑셀 시트 제목에서 추출한 학기
-# ele_school: '초'일 경우 초등학교 데이터를 의미, 아닐 경우 None
-# mid_school: '중'일 경우 중학교 데이터를 의미, 아닐 경우 None
 def insert_data(conn, data, year, semester, ele_school, mid_school):
     cursor = conn.cursor()
     query = ("INSERT INTO TB_ELEARNING_DATA (year, semester, agency_name, affiliation, agency_number, ele_school, mid_school, t_name, nice_number, birthday, area, start_date, end_date, reg_date, remarks) "
@@ -87,8 +82,8 @@ def insert_data(conn, data, year, semester, ele_school, mid_school):
         conn.rollback() #오류 발생 시 롤백
 
 def main():
-    # 엑셀 파일 경로 설정
-    excel_file_path = "C:\\Users\\huintech\\Desktop\\테스트.xlsx"
+    # 엑셀 파일 경로
+    excel_file_path = "C:\\Users\\huintech\\Desktop\\test.xlsx"
 
     # 엑셀 파일 읽기
     try:
@@ -114,8 +109,7 @@ def main():
         # 실제 데이터는 다섯 번째 행 이후부터 시작
         data = pd.read_excel(excel_file, sheet_name=sheet_name, engine='openpyxl', skiprows=4)
 
-        # 엑셀 파일의 데이터 프레임 열 이름을 데이터베이스와 일치시키기 위해 변경.
-        # 엑셀 파일 내부에서 열 이름을 임의로 변경하더라도, 열 위치가 일치하는 한 위치에 맞는 DB 칼럼 안에 넣도록 하기 위한 코드
+        # 엑셀 파일의 데이터 프레임 열 이름을 특정 형식으로 설정하여 데이터베이스와 일치시키기 위해 열 이름을 변경
         data.columns = ['연번', '청번', '청명', '소속', '성명', '나이스 개인번호', '생년월일-성별', '영역', '시작일', '종료일', '비고']
 
         # ele_school과 mid_school 설정
